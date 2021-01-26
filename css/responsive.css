@@ -1,0 +1,148 @@
+/* Pour les écrans supérieurs ou égal à 601px  */
+@media screen and (min-width: 601px) {
+  header .container {
+    align-items: flex-end;
+  }
+  
+  .portrait, .description_portrait{
+    margin: 20px;
+  }
+  /* paramètrage de la zone CV */
+  .btn-cv{
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    border-radius: 15px;
+    border: 1px;
+    margin-top: 20px;
+  }
+  .btn-cv p{
+    display: inline-flex;
+    width: 200px;
+    height: 20px;
+    align-items: center;
+    justify-content: center;
+  }
+  .btn-cv:hover{
+    background-color: var(--light-color);
+    color: var(--dark-color);
+  }
+
+  .cv.show{
+    display: block;
+    margin-top: 20px;
+  }
+}
+
+/* Pour les écrans inférieurs ou égal à 600px  */
+@media screen and (max-width: 600px) {  
+  .nav-toggle {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  /* configuration et création des barres du menu */
+  .nav-toggle-bar,
+  .nav-toggle-bar::before,
+  .nav-toggle-bar::after {
+    content:"";
+    background-color: var(--dark-color);
+    width: 100%;
+    height: 2px;
+    position: absolute;
+    transition: all .4s ease-in-out;
+  }
+  .nav-toggle-bar::before {
+    top: -10px;
+  }
+  .nav-toggle-bar::after {
+    top: 10px;
+  }
+  /* Transitions Icone de menu */
+  .nav-toggle.active .nav-toggle-bar {
+    transform: rotate(135deg);
+  }
+  .nav-toggle.active .nav-toggle-bar:before,
+  .nav-toggle.active .nav-toggle-bar:after {
+    top: 0;
+    transform: rotate(90deg);
+  }
+  /* Menu dans son état initial mais fermé */
+  .menu {     
+    visibility: hidden;
+    transform: translateX(100vw);
+    position: fixed;
+    background-color: var(--tonic-color);
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 1;
+    transition: all .3s ease-in-out;
+  }
+  /* Menu dans son état initial mais ouvert */ 
+  .menu.open {
+    visibility: visible;
+    transform: translateX(0);
+  }
+  .menu.open li {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  /* animation sur les items de menu */
+  .menu.open li:nth-child(n+1) { transition-delay: .3s;}
+  .menu.open li:nth-child(n+2) { transition-delay: .4s;}
+  .menu.open li:nth-child(n+3) { transition-delay: .5s;}
+  .menu.open li:nth-child(n+4) { transition-delay: .6s;}
+  .menu.open li:nth-child(n+5) { transition-delay: .7s;}
+  
+  .menu ul {
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-size: 2.1rem;
+  }
+  .menu ul li {
+    margin-bottom: 30px;
+    transform: translateX(30px);
+    opacity: 0;
+    transition: all .4s ease;
+  }
+  .container {
+    flex-direction: column;
+  }
+  /* Configuration de la taille du portrait */
+  .img_portrait{
+    width: 250px;
+  }
+  /* application d'une marge par rapport au menu bar */
+  main{
+    margin-top: 50px;
+  }
+  /* mise en disposition colonne de la description portrait */
+  main .container{
+    flex-direction: column;
+  }
+  main h1, main h3, p{
+    text-align: center;
+  }
+  /* carte projet */
+  .carte-projet{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  /* Contact */
+  .contact2 {
+    margin-left: 0;
+    margin-top: 20px;
+}
+  /* paramètrage de la zone CV */
+  .btn-cv{
+    display: none;
+  }
+}
